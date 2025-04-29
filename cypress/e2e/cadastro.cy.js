@@ -5,7 +5,11 @@ describe('US-012-Funcionalidade: Cadastro de membros', () => {
     cy.visit('/')
   });
 
-  it('Cadastro de campos orbigatórios', () => {
+  afterEach(() => {
+    cy.screenshot()
+  })
+
+  it('Cadastro de campos obrigatorios', () => {
     var email = `fran${Date.now()}@gmail.com`
     cy.PreencherCadastro("Fran", "conceição", email, "719897399", "Pipoca@1010")
     cy.get('#signup-response').should("contain", "Cadastro realizado com sucesso!")
